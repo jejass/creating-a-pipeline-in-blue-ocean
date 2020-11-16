@@ -24,7 +24,9 @@ pipeline {
 
     stage('deliver') {
       steps {
-        echo 'this is a deliver'
+        sh './Jenkins/scripts/deliver.sh'
+        input 'Finished using the web site? (Click "Proceed" to continue)'
+        sh './jenkins/scripts/kill.sh'
       }
     }
 
